@@ -30,6 +30,30 @@
         {
             this.lbl_firstName = new System.Windows.Forms.Label();
             this.lbl_middleInitial = new System.Windows.Forms.Label();
+            this.lbl_lastName = new System.Windows.Forms.Label();
+            this.txtBox_firstName = new System.Windows.Forms.TextBox();
+            this.txtBox_middleInitial = new System.Windows.Forms.TextBox();
+            this.txtBox_lastName = new System.Windows.Forms.TextBox();
+            this.lbl_gender = new System.Windows.Forms.Label();
+            this.dropDown_gender = new System.Windows.Forms.ComboBox();
+            this.lbl_number = new System.Windows.Forms.Label();
+            this.lbl_email = new System.Windows.Forms.Label();
+            this.txtBox_number = new System.Windows.Forms.MaskedTextBox();
+            this.txtBox_email = new System.Windows.Forms.TextBox();
+            this.lbl_address = new System.Windows.Forms.Label();
+            this.txtBox_address1 = new System.Windows.Forms.TextBox();
+            this.txtBox_address2 = new System.Windows.Forms.TextBox();
+            this.lbl_city = new System.Windows.Forms.Label();
+            this.lbl_state = new System.Windows.Forms.Label();
+            this.lbl_zipcode = new System.Windows.Forms.Label();
+            this.lbl_proof = new System.Windows.Forms.Label();
+            this.dropDown_proof = new System.Windows.Forms.ComboBox();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.txtBox_date = new System.Windows.Forms.MaskedTextBox();
+            this.txtBox_city = new System.Windows.Forms.TextBox();
+            this.txtBox_state = new System.Windows.Forms.TextBox();
+            this.txtBox_zipcode = new System.Windows.Forms.MaskedTextBox();
+            this.btn_save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_firstName
@@ -44,20 +68,256 @@
             // lbl_middleInitial
             // 
             this.lbl_middleInitial.AutoSize = true;
-            this.lbl_middleInitial.Location = new System.Drawing.Point(15, 64);
+            this.lbl_middleInitial.Location = new System.Drawing.Point(12, 57);
             this.lbl_middleInitial.Name = "lbl_middleInitial";
             this.lbl_middleInitial.Size = new System.Drawing.Size(65, 13);
             this.lbl_middleInitial.TabIndex = 1;
             this.lbl_middleInitial.Text = "Middle Initial";
             // 
+            // lbl_lastName
+            // 
+            this.lbl_lastName.AutoSize = true;
+            this.lbl_lastName.Location = new System.Drawing.Point(12, 84);
+            this.lbl_lastName.Name = "lbl_lastName";
+            this.lbl_lastName.Size = new System.Drawing.Size(58, 13);
+            this.lbl_lastName.TabIndex = 2;
+            this.lbl_lastName.Text = "Last Name";
+            // 
+            // txtBox_firstName
+            // 
+            this.txtBox_firstName.Location = new System.Drawing.Point(92, 22);
+            this.txtBox_firstName.MaxLength = 20;
+            this.txtBox_firstName.Name = "txtBox_firstName";
+            this.txtBox_firstName.Size = new System.Drawing.Size(100, 20);
+            this.txtBox_firstName.TabIndex = 3;
+            // 
+            // txtBox_middleInitial
+            // 
+            this.txtBox_middleInitial.Location = new System.Drawing.Point(92, 54);
+            this.txtBox_middleInitial.MaxLength = 1;
+            this.txtBox_middleInitial.Name = "txtBox_middleInitial";
+            this.txtBox_middleInitial.Size = new System.Drawing.Size(23, 20);
+            this.txtBox_middleInitial.TabIndex = 4;
+            // 
+            // txtBox_lastName
+            // 
+            this.txtBox_lastName.Location = new System.Drawing.Point(92, 84);
+            this.txtBox_lastName.MaxLength = 20;
+            this.txtBox_lastName.Name = "txtBox_lastName";
+            this.txtBox_lastName.Size = new System.Drawing.Size(100, 20);
+            this.txtBox_lastName.TabIndex = 5;
+            // 
+            // lbl_gender
+            // 
+            this.lbl_gender.AutoSize = true;
+            this.lbl_gender.Location = new System.Drawing.Point(12, 114);
+            this.lbl_gender.Name = "lbl_gender";
+            this.lbl_gender.Size = new System.Drawing.Size(42, 13);
+            this.lbl_gender.TabIndex = 6;
+            this.lbl_gender.Text = "Gender";
+            // 
+            // dropDown_gender
+            // 
+            this.dropDown_gender.FormattingEnabled = true;
+            this.dropDown_gender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.dropDown_gender.Location = new System.Drawing.Point(92, 114);
+            this.dropDown_gender.Name = "dropDown_gender";
+            this.dropDown_gender.Size = new System.Drawing.Size(65, 21);
+            this.dropDown_gender.TabIndex = 7;
+            // 
+            // lbl_number
+            // 
+            this.lbl_number.AutoSize = true;
+            this.lbl_number.Location = new System.Drawing.Point(12, 175);
+            this.lbl_number.Name = "lbl_number";
+            this.lbl_number.Size = new System.Drawing.Size(78, 13);
+            this.lbl_number.TabIndex = 8;
+            this.lbl_number.Text = "Phone Number";
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.Location = new System.Drawing.Point(12, 205);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(32, 13);
+            this.lbl_email.TabIndex = 9;
+            this.lbl_email.Text = "Email";
+            // 
+            // txtBox_number
+            // 
+            this.txtBox_number.Location = new System.Drawing.Point(106, 175);
+            this.txtBox_number.Mask = "(999) 000-0000";
+            this.txtBox_number.Name = "txtBox_number";
+            this.txtBox_number.Size = new System.Drawing.Size(100, 20);
+            this.txtBox_number.TabIndex = 10;
+            // 
+            // txtBox_email
+            // 
+            this.txtBox_email.Location = new System.Drawing.Point(106, 205);
+            this.txtBox_email.MaxLength = 60;
+            this.txtBox_email.Name = "txtBox_email";
+            this.txtBox_email.Size = new System.Drawing.Size(100, 20);
+            this.txtBox_email.TabIndex = 11;
+            // 
+            // lbl_address
+            // 
+            this.lbl_address.AutoSize = true;
+            this.lbl_address.Location = new System.Drawing.Point(12, 250);
+            this.lbl_address.Name = "lbl_address";
+            this.lbl_address.Size = new System.Drawing.Size(45, 13);
+            this.lbl_address.TabIndex = 12;
+            this.lbl_address.Text = "Address";
+            // 
+            // txtBox_address1
+            // 
+            this.txtBox_address1.Location = new System.Drawing.Point(15, 266);
+            this.txtBox_address1.MaxLength = 35;
+            this.txtBox_address1.Name = "txtBox_address1";
+            this.txtBox_address1.Size = new System.Drawing.Size(243, 20);
+            this.txtBox_address1.TabIndex = 13;
+            // 
+            // txtBox_address2
+            // 
+            this.txtBox_address2.Location = new System.Drawing.Point(15, 292);
+            this.txtBox_address2.MaxLength = 35;
+            this.txtBox_address2.Name = "txtBox_address2";
+            this.txtBox_address2.Size = new System.Drawing.Size(243, 20);
+            this.txtBox_address2.TabIndex = 14;
+            // 
+            // lbl_city
+            // 
+            this.lbl_city.AutoSize = true;
+            this.lbl_city.Location = new System.Drawing.Point(12, 332);
+            this.lbl_city.Name = "lbl_city";
+            this.lbl_city.Size = new System.Drawing.Size(24, 13);
+            this.lbl_city.TabIndex = 15;
+            this.lbl_city.Text = "City";
+            // 
+            // lbl_state
+            // 
+            this.lbl_state.AutoSize = true;
+            this.lbl_state.Location = new System.Drawing.Point(159, 332);
+            this.lbl_state.Name = "lbl_state";
+            this.lbl_state.Size = new System.Drawing.Size(32, 13);
+            this.lbl_state.TabIndex = 16;
+            this.lbl_state.Text = "State";
+            // 
+            // lbl_zipcode
+            // 
+            this.lbl_zipcode.AutoSize = true;
+            this.lbl_zipcode.Location = new System.Drawing.Point(256, 332);
+            this.lbl_zipcode.Name = "lbl_zipcode";
+            this.lbl_zipcode.Size = new System.Drawing.Size(46, 13);
+            this.lbl_zipcode.TabIndex = 17;
+            this.lbl_zipcode.Text = "Zipcode";
+            // 
+            // lbl_proof
+            // 
+            this.lbl_proof.AutoSize = true;
+            this.lbl_proof.Location = new System.Drawing.Point(12, 369);
+            this.lbl_proof.Name = "lbl_proof";
+            this.lbl_proof.Size = new System.Drawing.Size(144, 13);
+            this.lbl_proof.TabIndex = 18;
+            this.lbl_proof.Text = "Proof of Purchase Attached?";
+            // 
+            // dropDown_proof
+            // 
+            this.dropDown_proof.FormattingEnabled = true;
+            this.dropDown_proof.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.dropDown_proof.Location = new System.Drawing.Point(162, 366);
+            this.dropDown_proof.Name = "dropDown_proof";
+            this.dropDown_proof.Size = new System.Drawing.Size(57, 21);
+            this.dropDown_proof.TabIndex = 19;
+            // 
+            // lbl_date
+            // 
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Location = new System.Drawing.Point(256, 369);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(79, 13);
+            this.lbl_date.TabIndex = 20;
+            this.lbl_date.Text = "Date Recieved";
+            // 
+            // txtBox_date
+            // 
+            this.txtBox_date.Location = new System.Drawing.Point(341, 366);
+            this.txtBox_date.Mask = "00/00/0000";
+            this.txtBox_date.Name = "txtBox_date";
+            this.txtBox_date.Size = new System.Drawing.Size(64, 20);
+            this.txtBox_date.TabIndex = 21;
+            this.txtBox_date.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtBox_city
+            // 
+            this.txtBox_city.Location = new System.Drawing.Point(42, 329);
+            this.txtBox_city.MaxLength = 25;
+            this.txtBox_city.Name = "txtBox_city";
+            this.txtBox_city.Size = new System.Drawing.Size(100, 20);
+            this.txtBox_city.TabIndex = 15;
+            // 
+            // txtBox_state
+            // 
+            this.txtBox_state.Location = new System.Drawing.Point(197, 329);
+            this.txtBox_state.MaxLength = 2;
+            this.txtBox_state.Name = "txtBox_state";
+            this.txtBox_state.Size = new System.Drawing.Size(31, 20);
+            this.txtBox_state.TabIndex = 16;
+            // 
+            // txtBox_zipcode
+            // 
+            this.txtBox_zipcode.Location = new System.Drawing.Point(308, 329);
+            this.txtBox_zipcode.Mask = "00000-9999";
+            this.txtBox_zipcode.Name = "txtBox_zipcode";
+            this.txtBox_zipcode.Size = new System.Drawing.Size(64, 20);
+            this.txtBox_zipcode.TabIndex = 17;
+            // 
+            // btn_save
+            // 
+            this.btn_save.Enabled = false;
+            this.btn_save.Location = new System.Drawing.Point(15, 413);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.TabIndex = 22;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
+            this.AcceptButton = this.btn_save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 408);
+            this.ClientSize = new System.Drawing.Size(708, 448);
+            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.txtBox_zipcode);
+            this.Controls.Add(this.txtBox_state);
+            this.Controls.Add(this.txtBox_city);
+            this.Controls.Add(this.txtBox_date);
+            this.Controls.Add(this.lbl_date);
+            this.Controls.Add(this.dropDown_proof);
+            this.Controls.Add(this.lbl_proof);
+            this.Controls.Add(this.lbl_zipcode);
+            this.Controls.Add(this.lbl_state);
+            this.Controls.Add(this.lbl_city);
+            this.Controls.Add(this.txtBox_address2);
+            this.Controls.Add(this.txtBox_address1);
+            this.Controls.Add(this.lbl_address);
+            this.Controls.Add(this.txtBox_email);
+            this.Controls.Add(this.txtBox_number);
+            this.Controls.Add(this.lbl_email);
+            this.Controls.Add(this.lbl_number);
+            this.Controls.Add(this.dropDown_gender);
+            this.Controls.Add(this.lbl_gender);
+            this.Controls.Add(this.txtBox_lastName);
+            this.Controls.Add(this.txtBox_middleInitial);
+            this.Controls.Add(this.txtBox_firstName);
+            this.Controls.Add(this.lbl_lastName);
             this.Controls.Add(this.lbl_middleInitial);
             this.Controls.Add(this.lbl_firstName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -69,6 +329,30 @@
 
         private System.Windows.Forms.Label lbl_firstName;
         private System.Windows.Forms.Label lbl_middleInitial;
+        private System.Windows.Forms.Label lbl_lastName;
+        private System.Windows.Forms.TextBox txtBox_firstName;
+        private System.Windows.Forms.TextBox txtBox_middleInitial;
+        private System.Windows.Forms.TextBox txtBox_lastName;
+        private System.Windows.Forms.Label lbl_gender;
+        private System.Windows.Forms.ComboBox dropDown_gender;
+        private System.Windows.Forms.Label lbl_number;
+        private System.Windows.Forms.Label lbl_email;
+        private System.Windows.Forms.MaskedTextBox txtBox_number;
+        private System.Windows.Forms.TextBox txtBox_email;
+        private System.Windows.Forms.Label lbl_address;
+        private System.Windows.Forms.TextBox txtBox_address1;
+        private System.Windows.Forms.TextBox txtBox_address2;
+        private System.Windows.Forms.Label lbl_city;
+        private System.Windows.Forms.Label lbl_state;
+        private System.Windows.Forms.Label lbl_zipcode;
+        private System.Windows.Forms.Label lbl_proof;
+        private System.Windows.Forms.ComboBox dropDown_proof;
+        private System.Windows.Forms.Label lbl_date;
+        private System.Windows.Forms.MaskedTextBox txtBox_date;
+        private System.Windows.Forms.TextBox txtBox_city;
+        private System.Windows.Forms.TextBox txtBox_state;
+        private System.Windows.Forms.MaskedTextBox txtBox_zipcode;
+        private System.Windows.Forms.Button btn_save;
     }
 }
 

@@ -3,3 +3,8 @@ C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assign
 C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.Properties.Resources.resources
 C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.csproj.GenerateResource.cache
 C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.csproj.CoreCompileInputs.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\bin\Debug\Heather_Finnegan_Assignment2.exe.config
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\bin\Debug\Heather_Finnegan_Assignment2.exe
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\bin\Debug\Heather_Finnegan_Assignment2.pdb
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.exe
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.pdb
