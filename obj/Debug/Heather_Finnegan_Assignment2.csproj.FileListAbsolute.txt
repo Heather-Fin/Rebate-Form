@@ -1,0 +1,5 @@
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.csprojAssemblyReference.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.Form1.resources
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.Properties.Resources.resources
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.csproj.GenerateResource.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Heather_Finnegan_Assignment2\Heather_Finnegan_Assignment2\obj\Debug\Heather_Finnegan_Assignment2.csproj.CoreCompileInputs.cache
