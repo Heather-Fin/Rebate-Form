@@ -53,7 +53,13 @@
             this.txtBox_city = new System.Windows.Forms.TextBox();
             this.txtBox_state = new System.Windows.Forms.TextBox();
             this.txtBox_zipcode = new System.Windows.Forms.MaskedTextBox();
-            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_firstName
@@ -90,6 +96,7 @@
             this.txtBox_firstName.Name = "txtBox_firstName";
             this.txtBox_firstName.Size = new System.Drawing.Size(100, 20);
             this.txtBox_firstName.TabIndex = 3;
+            this.txtBox_firstName.TextChanged += new System.EventHandler(this.TxtBox_firstName_TextChanged);
             // 
             // txtBox_middleInitial
             // 
@@ -106,6 +113,7 @@
             this.txtBox_lastName.Name = "txtBox_lastName";
             this.txtBox_lastName.Size = new System.Drawing.Size(100, 20);
             this.txtBox_lastName.TabIndex = 5;
+            this.txtBox_lastName.TextChanged += new System.EventHandler(this.TxtBox_lastName_TextChanged);
             // 
             // lbl_gender
             // 
@@ -275,23 +283,73 @@
             this.txtBox_zipcode.Size = new System.Drawing.Size(64, 20);
             this.txtBox_zipcode.TabIndex = 17;
             // 
-            // btn_save
+            // btn_add
             // 
-            this.btn_save.Enabled = false;
-            this.btn_save.Location = new System.Drawing.Point(15, 413);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 22;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_add.Enabled = false;
+            this.btn_add.Location = new System.Drawing.Point(15, 413);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(75, 23);
+            this.btn_add.TabIndex = 22;
+            this.btn_add.Text = "Add";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.Btn_add_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnFirstName,
+            this.columnLastName,
+            this.columnNumber});
+            this.listView1.Location = new System.Drawing.Point(400, 12);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(296, 333);
+            this.listView1.TabIndex = 23;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnFirstName
+            // 
+            this.columnFirstName.Text = "First Name";
+            this.columnFirstName.Width = 91;
+            // 
+            // columnLastName
+            // 
+            this.columnLastName.Text = "Last Name";
+            this.columnLastName.Width = 107;
+            // 
+            // columnNumber
+            // 
+            this.columnNumber.Text = "Phone Number";
+            this.columnNumber.Width = 94;
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Location = new System.Drawing.Point(540, 351);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_edit.TabIndex = 24;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(621, 351);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 25;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AcceptButton = this.btn_save;
+            this.AcceptButton = this.btn_add;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 448);
-            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_edit);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.txtBox_zipcode);
             this.Controls.Add(this.txtBox_state);
             this.Controls.Add(this.txtBox_city);
@@ -352,7 +410,13 @@
         private System.Windows.Forms.TextBox txtBox_city;
         private System.Windows.Forms.TextBox txtBox_state;
         private System.Windows.Forms.MaskedTextBox txtBox_zipcode;
-        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnFirstName;
+        private System.Windows.Forms.ColumnHeader columnLastName;
+        private System.Windows.Forms.ColumnHeader columnNumber;
+        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_delete;
     }
 }
 
