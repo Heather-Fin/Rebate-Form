@@ -7,7 +7,7 @@
     <ProjectGuid>{BA8674FE-A0BA-4B89-AAE3-57861FB79DAE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Heather_Finnegan_Assignment2</RootNamespace>
-    <AssemblyName>Heather_Finnegan_Assignment2</AssemblyName>
+    <AssemblyName>Asg2-hxf180007</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

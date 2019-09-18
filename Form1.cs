@@ -42,5 +42,10 @@ namespace Heather_Finnegan_Assignment2
             txtBox_firstName.Clear();
             txtBox_lastName.Clear();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

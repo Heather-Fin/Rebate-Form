@@ -1,0 +1,10 @@
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\bin\Debug\Asg2-hxf180007.exe.config
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\bin\Debug\Asg2-hxf180007.exe
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\bin\Debug\Asg2-hxf180007.pdb
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Asg2-hxf180007.csprojAssemblyReference.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Heather_Finnegan_Assignment2.Form1.resources
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Heather_Finnegan_Assignment2.Properties.Resources.resources
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Asg2-hxf180007.csproj.GenerateResource.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Asg2-hxf180007.csproj.CoreCompileInputs.cache
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Asg2-hxf180007.exe
+C:\Users\Heather\Desktop\CS 6326\CS6326_Assignment2_Form\Asg2-hxf180007\Asg2-hxf180007\obj\Debug\Asg2-hxf180007.pdb
