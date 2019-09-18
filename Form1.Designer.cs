@@ -134,6 +134,7 @@
             this.dropDown_gender.Name = "dropDown_gender";
             this.dropDown_gender.Size = new System.Drawing.Size(65, 21);
             this.dropDown_gender.TabIndex = 7;
+            this.dropDown_gender.SelectedIndexChanged += new System.EventHandler(this.DropDown_gender_SelectedIndexChanged);
             // 
             // lbl_number
             // 
@@ -160,6 +161,7 @@
             this.txtBox_number.Name = "txtBox_number";
             this.txtBox_number.Size = new System.Drawing.Size(100, 20);
             this.txtBox_number.TabIndex = 10;
+            this.txtBox_number.TextChanged += new System.EventHandler(this.TxtBox_number_TextChanged);
             // 
             // txtBox_email
             // 
