@@ -17,7 +17,7 @@ namespace Heather_Finnegan_Assignment2
         bool lastName = false;
         bool gender = false;
         bool number = false;
-        // bool email = false;
+        bool email = false;
 
         public Form1()
         {
@@ -74,6 +74,19 @@ namespace Heather_Finnegan_Assignment2
             CheckValid();
         }
 
+        private void TxtBox_email_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBox_email.TextLength > 0)
+            {
+                email = true;
+            }
+            else
+            {
+                email = false;
+            }
+            CheckValid();
+        }
+
         private void Btn_add_Click(object sender, EventArgs e)
         {
             string fname = txtBox_firstName.Text;
@@ -87,7 +100,7 @@ namespace Heather_Finnegan_Assignment2
 
         private void CheckValid()
         {
-            if (firstName && lastName && gender && number)
+            if (firstName && lastName && gender && number && email)
             {
                 btn_add.Enabled = true;
             } else

@@ -170,6 +170,7 @@
             this.txtBox_email.Name = "txtBox_email";
             this.txtBox_email.Size = new System.Drawing.Size(100, 20);
             this.txtBox_email.TabIndex = 11;
+            this.txtBox_email.TextChanged += new System.EventHandler(this.TxtBox_email_TextChanged);
             // 
             // lbl_address
             // 
