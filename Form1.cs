@@ -40,30 +40,32 @@ namespace Heather_Finnegan_Assignment2
         {
             listView1.Items.Clear();
             // if no file exists, create one
-            if (!File.Exists("CS6326Asg2.txt"))
+            if (!File.Exists(fileName))
             {
-                var myFile = File.Create("CS6326Asg2.txt");
+                var myFile = File.Create(fileName);
                 myFile.Close();
             }
             // if file exists, show each entry on list view
             else
             {
-                StreamReader sr = new StreamReader("CS6326Asg2.txt");
+
+                StreamReader sr = new StreamReader(fileName);
 
                 while (sr.Peek() > -1)
                 {
-                    string s = sr.ReadLine();
-                    string[] element = s.Split('\t');
+                    string line = sr.ReadLine();
+                    string[] element = line.Split('\t');
                     ListViewItem li = new ListViewItem(element[0]);
                     li.SubItems.Add(element[2]);
                     li.SubItems.Add(element[9]);
-                    for (int i = 0; i < 13; i++)
+                    for (int i = 0; i < 12; i++)
                     {
                         li.SubItems.Add(element[i]);
-                    }
+                    }       
                     listView1.Items.Add(li);
                 }
                 sr.Close();
+                
             }
         }
 
@@ -209,13 +211,9 @@ namespace Heather_Finnegan_Assignment2
 
         private void Btn_add_Click(object sender, EventArgs e)
         {
-            // adds items to list view
-            ListViewItem li = listView1.Items.Add(txtBox_firstName.Text);
-            li.SubItems.Add(txtBox_lastName.Text);
-            li.SubItems.Add(txtBox_number.Text);
 
             // adds items to file
-            using (TextWriter tw = new StreamWriter(fileName))
+            using (TextWriter tw = new StreamWriter(fileName, true))
             {
                 tw.WriteLine(txtBox_firstName.Text + "\t" 
                     + txtBox_middleInitial.Text + "\t" 
@@ -230,8 +228,10 @@ namespace Heather_Finnegan_Assignment2
                     + txtBox_email.Text + "\t"
                     + dropDown_proof.Text + "\t"
                     + txtBox_date.Text + "\t");
+                tw.Close();
             }
 
+            this.LoadFile();
             ClearFields();
         }
 
@@ -289,6 +289,6 @@ namespace Heather_Finnegan_Assignment2
                 }
             }
             */
-        }
-    }
+                }
+            }
 }
