@@ -188,6 +188,7 @@
             this.txtBox_address1.Name = "txtBox_address1";
             this.txtBox_address1.Size = new System.Drawing.Size(243, 20);
             this.txtBox_address1.TabIndex = 13;
+            this.txtBox_address1.TextChanged += new System.EventHandler(this.TxtBox_address1_TextChanged);
             // 
             // txtBox_address2
             // 
@@ -243,6 +244,7 @@
             this.dropDown_proof.Name = "dropDown_proof";
             this.dropDown_proof.Size = new System.Drawing.Size(57, 21);
             this.dropDown_proof.TabIndex = 19;
+            this.dropDown_proof.SelectedIndexChanged += new System.EventHandler(this.DropDown_proof_SelectedIndexChanged);
             // 
             // lbl_date
             // 
@@ -261,6 +263,7 @@
             this.txtBox_date.Size = new System.Drawing.Size(64, 20);
             this.txtBox_date.TabIndex = 21;
             this.txtBox_date.ValidatingType = typeof(System.DateTime);
+            this.txtBox_date.TextChanged += new System.EventHandler(this.TxtBox_date_TextChanged);
             // 
             // txtBox_city
             // 
@@ -269,6 +272,7 @@
             this.txtBox_city.Name = "txtBox_city";
             this.txtBox_city.Size = new System.Drawing.Size(100, 20);
             this.txtBox_city.TabIndex = 15;
+            this.txtBox_city.TextChanged += new System.EventHandler(this.TxtBox_city_TextChanged);
             // 
             // txtBox_state
             // 
@@ -277,6 +281,7 @@
             this.txtBox_state.Name = "txtBox_state";
             this.txtBox_state.Size = new System.Drawing.Size(31, 20);
             this.txtBox_state.TabIndex = 16;
+            this.txtBox_state.TextChanged += new System.EventHandler(this.TxtBox_state_TextChanged);
             // 
             // txtBox_zipcode
             // 
@@ -285,6 +290,7 @@
             this.txtBox_zipcode.Name = "txtBox_zipcode";
             this.txtBox_zipcode.Size = new System.Drawing.Size(64, 20);
             this.txtBox_zipcode.TabIndex = 17;
+            this.txtBox_zipcode.TextChanged += new System.EventHandler(this.TxtBox_zipcode_TextChanged);
             // 
             // btn_add
             // 
