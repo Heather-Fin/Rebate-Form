@@ -279,6 +279,12 @@ namespace Heather_Finnegan_Assignment2
 
         private void Btn_edit_Click(object sender, EventArgs e)
         {
+        /*
+             1. Open file
+             2. Find item to edit
+             3. Load data into fields
+             4. Allow user to overwrite that line by clicking Add
+        */
 
         }
 
@@ -295,7 +301,10 @@ namespace Heather_Finnegan_Assignment2
             int index;
             for (index = 0; index < filelines.Length && !found; index++)
             {
-                if (filelines[index].Contains(search))
+                string[] element = filelines[index].Split('\t');
+                if((element[0] == li.SubItems[0].Text) &&
+                    (element[2] == li.SubItems[1].Text) &&
+                    (element[9] == li.SubItems[2].Text))
                 {
                     found = true;
                 }
@@ -318,14 +327,6 @@ namespace Heather_Finnegan_Assignment2
 
             File.WriteAllLines(fileName, newfilelines);
             this.LoadFile();
-
-            /*
-                1. open file
-                2. find that name and number combo
-                3. delete line
-                4. close file
-                5. reload data, unselect tableview
-            */
         }
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
