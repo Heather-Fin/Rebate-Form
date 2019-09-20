@@ -284,13 +284,48 @@ namespace Heather_Finnegan_Assignment2
 
         private void Btn_delete_Click(object sender, EventArgs e)
         {
-        /*
-            1. open file
-            2. find that name and number combo
-            3. delete line
-            4. close file
-            5. reload data, unselect tableview
-        */
+            string[] filelines = File.ReadAllLines(fileName);
+            string[] newfilelines = new string[filelines.Length - 1];
+
+            ListViewItem li = listView1.SelectedItems[0];
+            string search = li.SubItems[0].Text + "\t" + li.SubItems[1].Text + "\t" + li.SubItems[2].Text;
+            Console.WriteLine("Item Selected to delete!  " + search);
+
+            bool found = false;
+            int index;
+            for (index = 0; index < filelines.Length && !found; index++)
+            {
+                if (filelines[index].Contains(search))
+                {
+                    found = true;
+                }
+                if (index != filelines.Length - 1)
+                {
+                    newfilelines[index] = filelines[index];
+                }
+            }
+
+            if (!found)
+            {
+                return;
+            }
+
+            int j;
+            for (j = index; j < filelines.Length; j++)
+            {
+                newfilelines[j - 1] = filelines[j];
+            }
+
+            File.WriteAllLines(fileName, newfilelines);
+            this.LoadFile();
+
+            /*
+                1. open file
+                2. find that name and number combo
+                3. delete line
+                4. close file
+                5. reload data, unselect tableview
+            */
         }
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -299,7 +334,6 @@ namespace Heather_Finnegan_Assignment2
             {
                 btn_delete.Enabled = true;
                 btn_edit.Enabled = true;
-                Console.WriteLine("Item Selected!" + listView1.SelectedItems[0].Text);
             } else
             {
                 btn_delete.Enabled = false;
