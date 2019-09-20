@@ -13,7 +13,10 @@ namespace Heather_Finnegan_Assignment2
 {
     public partial class Form1 : Form
     {
+        // file path for data text file
+        string fileName = "CS6326Asg2.txt";
 
+        // bools for field validation check
         bool firstName = false;
         bool lastName = false;
         bool gender = false;
@@ -29,6 +32,39 @@ namespace Heather_Finnegan_Assignment2
         public Form1()
         {
             InitializeComponent();
+            txtBox_middleInitial.CharacterCasing = CharacterCasing.Upper;
+            txtBox_state.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        public void LoadFile()
+        {
+            listView1.Items.Clear();
+            // if no file exists, create one
+            if (!File.Exists("CS6326Asg2.txt"))
+            {
+                var myFile = File.Create("CS6326Asg2.txt");
+                myFile.Close();
+            }
+            // if file exists, show each entry on list view
+            else
+            {
+                StreamReader sr = new StreamReader("CS6326Asg2.txt");
+
+                while (sr.Peek() > -1)
+                {
+                    string s = sr.ReadLine();
+                    string[] element = s.Split('\t');
+                    ListViewItem li = new ListViewItem(element[0]);
+                    li.SubItems.Add(element[2]);
+                    li.SubItems.Add(element[9]);
+                    for (int i = 0; i < 13; i++)
+                    {
+                        li.SubItems.Add(element[i]);
+                    }
+                    listView1.Items.Add(li);
+                }
+                sr.Close();
+            }
         }
 
         private void TxtBox_firstName_TextChanged(object sender, EventArgs e)
@@ -173,12 +209,29 @@ namespace Heather_Finnegan_Assignment2
 
         private void Btn_add_Click(object sender, EventArgs e)
         {
-            string fname = txtBox_firstName.Text;
-            string lname = txtBox_lastName.Text;
-            string number = txtBox_number.Text;
-            ListViewItem li = listView1.Items.Add(fname);
-            li.SubItems.Add(lname);
-            li.SubItems.Add(number);
+            // adds items to list view
+            ListViewItem li = listView1.Items.Add(txtBox_firstName.Text);
+            li.SubItems.Add(txtBox_lastName.Text);
+            li.SubItems.Add(txtBox_number.Text);
+
+            // adds items to file
+            using (TextWriter tw = new StreamWriter(fileName))
+            {
+                tw.WriteLine(txtBox_firstName.Text + "\t" 
+                    + txtBox_middleInitial.Text + "\t" 
+                    + txtBox_lastName.Text + "\t"
+                    + txtBox_address1.Text + "\t"
+                    + txtBox_address2.Text + "\t"
+                    + txtBox_city.Text + "\t"
+                    + txtBox_state.Text + "\t"
+                    + txtBox_zipcode.Text + "\t"
+                    + dropDown_gender.Text + "\t"
+                    + txtBox_number.Text + "\t"
+                    + txtBox_email.Text + "\t"
+                    + dropDown_proof.Text + "\t"
+                    + txtBox_date.Text + "\t");
+            }
+
             ClearFields();
         }
 
@@ -212,31 +265,30 @@ namespace Heather_Finnegan_Assignment2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.LoadFile();
+
             // sets date to current date in form
             txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
 
-            // file path for data text file
-            string path = Path.GetDirectoryName(Application.ExecutablePath) + "\\CS6326Asg2.txt";
-
+            /*
             // if file does not exist, creates it
-            if (!File.Exists(path))
+            if (!File.Exists(fileName))
             {
-                File.Create(path).Dispose();
-
-                using (TextWriter tw = new StreamWriter(path))
-                {
-                    //tw.WriteLine("The very first line!");
-                }
-
+                File.Create(fileName).Dispose();
             }
-            // if file does exist, adds to it
-            else if (File.Exists(path))
+            // if file does exist, load it to the list view
+            else if (File.Exists(fileName))
             {
-                using (TextWriter tw = new StreamWriter(path))
+                //string[] lines = System.IO.File.ReadAllLines(path);
+                //foreach (string line in lines)
+                foreach (var line in File.ReadLines(fileName))
                 {
-                    //tw.WriteLine("The next line!");
+                    Console.WriteLine(line);
+                    var tempLine = line.Split('\t');
+                    Console.WriteLine(tempLine);
                 }
             }
+            */
         }
     }
 }
