@@ -61,11 +61,11 @@ namespace Heather_Finnegan_Assignment2
                     for (int i = 0; i < 12; i++)
                     {
                         li.SubItems.Add(element[i]);
-                    }       
+                    }
                     listView1.Items.Add(li);
                 }
                 sr.Close();
-                
+
             }
         }
 
@@ -74,7 +74,8 @@ namespace Heather_Finnegan_Assignment2
             if (txtBox_firstName.TextLength > 0)
             {
                 firstName = true;
-            } else
+            }
+            else
             {
                 firstName = false;
             }
@@ -86,7 +87,8 @@ namespace Heather_Finnegan_Assignment2
             if (txtBox_lastName.TextLength > 0)
             {
                 lastName = true;
-            } else
+            }
+            else
             {
                 lastName = false;
             }
@@ -147,7 +149,7 @@ namespace Heather_Finnegan_Assignment2
 
         private void TxtBox_city_TextChanged(object sender, EventArgs e)
         {
-            if(txtBox_city.TextLength > 0)
+            if (txtBox_city.TextLength > 0)
             {
                 city = true;
             }
@@ -160,7 +162,7 @@ namespace Heather_Finnegan_Assignment2
 
         private void TxtBox_state_TextChanged(object sender, EventArgs e)
         {
-            if(txtBox_state.TextLength > 1)
+            if (txtBox_state.TextLength > 1)
             {
                 state = true;
             }
@@ -209,14 +211,15 @@ namespace Heather_Finnegan_Assignment2
             CheckValid();
         }
 
+        // appends user entered data to file
         private void Btn_add_Click(object sender, EventArgs e)
         {
 
             // adds items to file
             using (TextWriter tw = new StreamWriter(fileName, true))
             {
-                tw.WriteLine(txtBox_firstName.Text + "\t" 
-                    + txtBox_middleInitial.Text + "\t" 
+                tw.WriteLine(txtBox_firstName.Text + "\t"
+                    + txtBox_middleInitial.Text + "\t"
                     + txtBox_lastName.Text + "\t"
                     + txtBox_address1.Text + "\t"
                     + txtBox_address2.Text + "\t"
@@ -235,17 +238,20 @@ namespace Heather_Finnegan_Assignment2
             ClearFields();
         }
 
+        // enables button only if all user entered data is valid
         private void CheckValid()
         {
             if (firstName && lastName && gender && number && email && address &&
                 city && state && zipcode && date && proof)
             {
                 btn_add.Enabled = true;
-            } else
+            }
+            else
             {
                 btn_add.Enabled = false;
             }
         }
+        // clears all user entered data from screen
         private void ClearFields()
         {
             txtBox_firstName.Clear();
@@ -269,26 +275,36 @@ namespace Heather_Finnegan_Assignment2
 
             // sets date to current date in form
             txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+        }
 
-            /*
-            // if file does not exist, creates it
-            if (!File.Exists(fileName))
+        private void Btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_delete_Click(object sender, EventArgs e)
+        {
+        /*
+            1. open file
+            2. find that name and number combo
+            3. delete line
+            4. close file
+            5. reload data, unselect tableview
+        */
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
             {
-                File.Create(fileName).Dispose();
-            }
-            // if file does exist, load it to the list view
-            else if (File.Exists(fileName))
+                btn_delete.Enabled = true;
+                btn_edit.Enabled = true;
+                Console.WriteLine("Item Selected!" + listView1.SelectedItems[0].Text);
+            } else
             {
-                //string[] lines = System.IO.File.ReadAllLines(path);
-                //foreach (string line in lines)
-                foreach (var line in File.ReadLines(fileName))
-                {
-                    Console.WriteLine(line);
-                    var tempLine = line.Split('\t');
-                    Console.WriteLine(tempLine);
-                }
+                btn_delete.Enabled = false;
+                btn_edit.Enabled = false;
             }
-            */
-                }
-            }
+        }
+    }
 }
