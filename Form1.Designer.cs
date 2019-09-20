@@ -58,7 +58,6 @@
             this.columnFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -127,6 +126,7 @@
             // 
             // dropDown_gender
             // 
+            this.dropDown_gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropDown_gender.FormattingEnabled = true;
             this.dropDown_gender.Items.AddRange(new object[] {
             "Male",
@@ -237,6 +237,7 @@
             // 
             // dropDown_proof
             // 
+            this.dropDown_proof.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropDown_proof.FormattingEnabled = true;
             this.dropDown_proof.Items.AddRange(new object[] {
             "Yes",
@@ -336,17 +337,6 @@
             this.columnNumber.Text = "Phone Number";
             this.columnNumber.Width = 94;
             // 
-            // btn_edit
-            // 
-            this.btn_edit.Enabled = false;
-            this.btn_edit.Location = new System.Drawing.Point(540, 351);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_edit.TabIndex = 24;
-            this.btn_edit.Text = "Edit";
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.Btn_edit_Click);
-            // 
             // btn_delete
             // 
             this.btn_delete.Enabled = false;
@@ -360,7 +350,7 @@
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(330, 413);
+            this.btn_clear.Location = new System.Drawing.Point(621, 413);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 26;
@@ -376,7 +366,6 @@
             this.ClientSize = new System.Drawing.Size(708, 448);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.txtBox_zipcode);
@@ -445,7 +434,6 @@
         private System.Windows.Forms.ColumnHeader columnFirstName;
         private System.Windows.Forms.ColumnHeader columnLastName;
         private System.Windows.Forms.ColumnHeader columnNumber;
-        private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_clear;
     }

@@ -99,7 +99,7 @@ namespace Heather_Finnegan_Assignment2
 
         private void DropDown_gender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dropDown_gender.Text.Length > 0)
+            if (dropDown_gender.SelectedIndex > -1)
             {
                 gender = true;
             }
@@ -202,7 +202,7 @@ namespace Heather_Finnegan_Assignment2
 
         private void DropDown_proof_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dropDown_proof.Text.Length > 0)
+            if (dropDown_proof.SelectedIndex > -1)
             {
                 proof = true;
             }
@@ -216,28 +216,20 @@ namespace Heather_Finnegan_Assignment2
         // appends user entered data to file
         private void Btn_add_Click(object sender, EventArgs e)
         {
-
-            // adds items to file
-            using (TextWriter tw = new StreamWriter(fileName, true))
+            if(listView1.SelectedItems.Count > 0)
             {
-                tw.WriteLine(txtBox_firstName.Text + "\t"
-                    + txtBox_middleInitial.Text + "\t"
-                    + txtBox_lastName.Text + "\t"
-                    + txtBox_address1.Text + "\t"
-                    + txtBox_address2.Text + "\t"
-                    + txtBox_city.Text + "\t"
-                    + txtBox_state.Text + "\t"
-                    + txtBox_zipcode.Text + "\t"
-                    + dropDown_gender.Text + "\t"
-                    + txtBox_number.Text + "\t"
-                    + txtBox_email.Text + "\t"
-                    + dropDown_proof.Text + "\t"
-                    + txtBox_date.Text + "\t");
-                tw.Close();
+                DeleteElement();
+                AddElement();
+            } else
+            {
+                ElementExists();
+                AddElement();
             }
+            
             listView1.SelectedItems.Clear();
             this.LoadFile();
             ClearFields();
+            txtBox_firstName.Focus();
         }
 
         // enables button only if all user entered data is valid
@@ -253,6 +245,25 @@ namespace Heather_Finnegan_Assignment2
                 btn_add.Enabled = false;
             }
         }
+
+        // checks if the user already exists
+        private void ElementExists()
+        {
+            string[] filelines = File.ReadAllLines(fileName);
+            bool found = false;
+            int index;
+            for (index = 0; index < filelines.Length && !found; index++)
+            {
+                string[] element = filelines[index].Split('\t');
+                if ((element[0] == txtBox_firstName.Text) &&
+                    (element[2] == txtBox_lastName.Text) &&
+                    (element[9] == txtBox_number.Text))
+                {
+                    Console.WriteLine("OH NO BAD USER");
+                }
+            }
+        }
+
         // clears all user entered data from screen
         private void ClearFields()
         {
@@ -271,48 +282,30 @@ namespace Heather_Finnegan_Assignment2
             txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // adds item to file
+        private void AddElement()
         {
-            this.LoadFile();
-
-            // sets date to current date in form
-            txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
-        }
-
-        // allows user to edit a list view item on table and in the file
-        private void Btn_edit_Click(object sender, EventArgs e)
-        {
-            string[] filelines = File.ReadAllLines(fileName);
-            ListViewItem li = listView1.SelectedItems[0];
-            bool found = false;
-            int index;
-            for (index = 0; index < filelines.Length && !found; index++)
+            using (TextWriter tw = new StreamWriter(fileName, true))
             {
-                string[] element = filelines[index].Split('\t');
-                if ((element[0] == li.SubItems[0].Text) &&
-                    (element[2] == li.SubItems[1].Text) &&
-                    (element[9] == li.SubItems[2].Text))
-                {
-                    found = true;
-                    txtBox_firstName.Text = element[0];
-                    txtBox_middleInitial.Text = element[1];
-                    txtBox_lastName.Text = element[2];
-                    txtBox_address1.Text = element[3];
-                    txtBox_address2.Text = element[4];
-                    txtBox_city.Text = element[5];
-                    txtBox_state.Text = element[6];
-                    txtBox_zipcode.Text = element[7];
-                    dropDown_gender.SelectedItem = element[8];
-                    txtBox_number.Text = element[9];
-                    txtBox_email.Text = element[10];
-                    dropDown_proof.SelectedItem = element[11];
-                    txtBox_date.Text = element[12];
-                }
+                tw.WriteLine(txtBox_firstName.Text + "\t"
+                    + txtBox_middleInitial.Text + "\t"
+                    + txtBox_lastName.Text + "\t"
+                    + txtBox_address1.Text + "\t"
+                    + txtBox_address2.Text + "\t"
+                    + txtBox_city.Text + "\t"
+                    + txtBox_state.Text + "\t"
+                    + txtBox_zipcode.Text + "\t"
+                    + dropDown_gender.Text + "\t"
+                    + txtBox_number.Text + "\t"
+                    + txtBox_email.Text + "\t"
+                    + dropDown_proof.Text + "\t"
+                    + txtBox_date.Text + "\t");
+                tw.Close();
             }
         }
 
-        // deletes a list view item from the file and table
-        private void Btn_delete_Click(object sender, EventArgs e)
+        // deletes selected list view element
+        private void DeleteElement()
         {
             string[] filelines = File.ReadAllLines(fileName);
             string[] newfilelines = new string[filelines.Length - 1];
@@ -324,7 +317,7 @@ namespace Heather_Finnegan_Assignment2
             for (index = 0; index < filelines.Length && !found; index++)
             {
                 string[] element = filelines[index].Split('\t');
-                if((element[0] == li.SubItems[0].Text) &&
+                if ((element[0] == li.SubItems[0].Text) &&
                     (element[2] == li.SubItems[1].Text) &&
                     (element[9] == li.SubItems[2].Text))
                 {
@@ -348,7 +341,22 @@ namespace Heather_Finnegan_Assignment2
             }
 
             File.WriteAllLines(fileName, newfilelines);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.LoadFile();
+
+            // sets date to current date in form
+            txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+        }
+
+        // deletes a list view item from the file and table
+        private void Btn_delete_Click(object sender, EventArgs e)
+        {
+            DeleteElement();
             listView1.SelectedItems.Clear();
+            ClearFields();
             this.LoadFile();
         }
 
@@ -358,11 +366,36 @@ namespace Heather_Finnegan_Assignment2
             if (listView1.SelectedItems.Count == 1)
             {
                 btn_delete.Enabled = true;
-                btn_edit.Enabled = true;
+                string[] filelines = File.ReadAllLines(fileName);
+                ListViewItem li = listView1.SelectedItems[0];
+                bool found = false;
+                int index;
+                for (index = 0; index < filelines.Length && !found; index++)
+                {
+                    string[] element = filelines[index].Split('\t');
+                    if ((element[0] == li.SubItems[0].Text) &&
+                        (element[2] == li.SubItems[1].Text) &&
+                        (element[9] == li.SubItems[2].Text))
+                    {
+                        found = true;
+                        txtBox_firstName.Text = element[0];
+                        txtBox_middleInitial.Text = element[1];
+                        txtBox_lastName.Text = element[2];
+                        txtBox_address1.Text = element[3];
+                        txtBox_address2.Text = element[4];
+                        txtBox_city.Text = element[5];
+                        txtBox_state.Text = element[6];
+                        txtBox_zipcode.Text = element[7];
+                        dropDown_gender.SelectedItem = element[8];
+                        txtBox_number.Text = element[9];
+                        txtBox_email.Text = element[10];
+                        dropDown_proof.SelectedItem = element[11];
+                        txtBox_date.Text = element[12];
+                    }
+                }
             } else
             {
                 btn_delete.Enabled = false;
-                btn_edit.Enabled = false;
             }
         }
 
