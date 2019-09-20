@@ -2,5 +2,5 @@ Heather	K	Finnegan	435 Copperstone Ct.	apt 222	Coppell	TX	75019-1111	Female	(214
 Mike		Finnegan	435 Copperstone Ct.		Coppell	TX	75019-1111	Male	(214) 448-8602	mike@mfinnegan.com	Yes	09/19/2019	
 hhh	H	hhh	7687676	76876	7676767677	76	76767-6876	Female	(675) 869-7865	77768678	Yes	09/20/2019	
 first name	K	last name	add1	add2	city	TX	75019-0001	Male	(000) 000-0000	email	No	09/19/2019	
-Hello	P	Kitty	idk	idk	city	TX	75019-1111	Female	(123) 456-7800	idk	Yes	09/19/2019	
-Hello	K	Kitty	jbjhhjb	hbjhbj	jbhhbhjb	HJ	73546-7345	Male	(123) 456-7800	jbhjh	Yes	09/20/2019	
+Hello	K	Kitty	hjbhjb	hjbhbj	hjbhbj	HJ	85783-6476	Female	(123) 456-7800	dshjhbj	Yes	09/20/2019	
+Hello	K	Ki	jbjhhjb	hb	jbhhbhjb	HJ	73546-7345	Male	(123) 456-7800	jbhjh	Yes	09/20/2019	

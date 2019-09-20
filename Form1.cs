@@ -216,13 +216,17 @@ namespace Heather_Finnegan_Assignment2
         // appends user entered data to file
         private void Btn_add_Click(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count > 0)
+
+            if (ElementExists())
+            {
+                MessageBox.Show("Oh no, that user already exists!");
+                return;
+            } else if (listView1.SelectedItems.Count > 0)
             {
                 DeleteElement();
                 AddElement();
             } else
             {
-                ElementExists();
                 AddElement();
             }
             
@@ -247,7 +251,7 @@ namespace Heather_Finnegan_Assignment2
         }
 
         // checks if the user already exists
-        private void ElementExists()
+        private bool ElementExists()
         {
             string[] filelines = File.ReadAllLines(fileName);
             bool found = false;
@@ -259,9 +263,10 @@ namespace Heather_Finnegan_Assignment2
                     (element[2] == txtBox_lastName.Text) &&
                     (element[9] == txtBox_number.Text))
                 {
-                    Console.WriteLine("OH NO BAD USER");
+                    return true;
                 }
             }
+            return false;
         }
 
         // clears all user entered data from screen
