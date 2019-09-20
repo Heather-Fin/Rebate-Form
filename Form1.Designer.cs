@@ -60,6 +60,7 @@
             this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_firstName
@@ -357,12 +358,23 @@
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.Btn_delete_Click);
             // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(330, 413);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(75, 23);
+            this.btn_clear.TabIndex = 26;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btn_add;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 448);
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.listView1);
@@ -435,6 +447,7 @@
         private System.Windows.Forms.ColumnHeader columnNumber;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_clear;
     }
 }
 

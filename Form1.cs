@@ -32,10 +32,12 @@ namespace Heather_Finnegan_Assignment2
         public Form1()
         {
             InitializeComponent();
+            // forces uppercase letters for state abbreviation and middle initial
             txtBox_middleInitial.CharacterCasing = CharacterCasing.Upper;
             txtBox_state.CharacterCasing = CharacterCasing.Upper;
         }
 
+        // loads the text file into the list view table. Creates a file if none exists
         public void LoadFile()
         {
             listView1.Items.Clear();
@@ -233,7 +235,7 @@ namespace Heather_Finnegan_Assignment2
                     + txtBox_date.Text + "\t");
                 tw.Close();
             }
-
+            listView1.SelectedItems.Clear();
             this.LoadFile();
             ClearFields();
         }
@@ -277,25 +279,45 @@ namespace Heather_Finnegan_Assignment2
             txtBox_date.Text = string.Format("{0:MM/dd/yyyy}", DateTime.Now);
         }
 
+        // allows user to edit a list view item on table and in the file
         private void Btn_edit_Click(object sender, EventArgs e)
         {
-        /*
-             1. Open file
-             2. Find item to edit
-             3. Load data into fields
-             4. Allow user to overwrite that line by clicking Add
-        */
-
+            string[] filelines = File.ReadAllLines(fileName);
+            ListViewItem li = listView1.SelectedItems[0];
+            bool found = false;
+            int index;
+            for (index = 0; index < filelines.Length && !found; index++)
+            {
+                string[] element = filelines[index].Split('\t');
+                if ((element[0] == li.SubItems[0].Text) &&
+                    (element[2] == li.SubItems[1].Text) &&
+                    (element[9] == li.SubItems[2].Text))
+                {
+                    found = true;
+                    txtBox_firstName.Text = element[0];
+                    txtBox_middleInitial.Text = element[1];
+                    txtBox_lastName.Text = element[2];
+                    txtBox_address1.Text = element[3];
+                    txtBox_address2.Text = element[4];
+                    txtBox_city.Text = element[5];
+                    txtBox_state.Text = element[6];
+                    txtBox_zipcode.Text = element[7];
+                    dropDown_gender.SelectedItem = element[8];
+                    txtBox_number.Text = element[9];
+                    txtBox_email.Text = element[10];
+                    dropDown_proof.SelectedItem = element[11];
+                    txtBox_date.Text = element[12];
+                }
+            }
         }
 
+        // deletes a list view item from the file and table
         private void Btn_delete_Click(object sender, EventArgs e)
         {
             string[] filelines = File.ReadAllLines(fileName);
             string[] newfilelines = new string[filelines.Length - 1];
 
             ListViewItem li = listView1.SelectedItems[0];
-            string search = li.SubItems[0].Text + "\t" + li.SubItems[1].Text + "\t" + li.SubItems[2].Text;
-            Console.WriteLine("Item Selected to delete!  " + search);
 
             bool found = false;
             int index;
@@ -326,9 +348,11 @@ namespace Heather_Finnegan_Assignment2
             }
 
             File.WriteAllLines(fileName, newfilelines);
+            listView1.SelectedItems.Clear();
             this.LoadFile();
         }
 
+        // enables list view edit and delete buttons if an item is selected
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 1)
@@ -340,6 +364,11 @@ namespace Heather_Finnegan_Assignment2
                 btn_delete.Enabled = false;
                 btn_edit.Enabled = false;
             }
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }
