@@ -99,6 +99,7 @@ namespace Heather_Finnegan_Assignment2
                 beganFormFill = true;
                 stopWatch.Start();
             }
+
             if (txtBox_firstName.TextLength > 0)
             {
                 firstName = true;
@@ -108,6 +109,16 @@ namespace Heather_Finnegan_Assignment2
                 firstName = false;
             }
             CheckValid();
+        }
+
+        private void txtBox_firstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtBox_middleInitial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
         private void TxtBox_lastName_TextChanged(object sender, EventArgs e)
@@ -121,6 +132,10 @@ namespace Heather_Finnegan_Assignment2
                 lastName = false;
             }
             CheckValid();
+        }
+        private void txtBox_lastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
         private void DropDown_gender_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +203,11 @@ namespace Heather_Finnegan_Assignment2
             CheckValid();
         }
 
+        private void txtBox_city_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
         private void TxtBox_state_TextChanged(object sender, EventArgs e)
         {
             if (txtBox_state.TextLength > 1)
@@ -199,6 +219,11 @@ namespace Heather_Finnegan_Assignment2
                 state = false;
             }
             CheckValid();
+        }
+
+        private void txtBox_state_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
         private void TxtBox_zipcode_TextChanged(object sender, EventArgs e)

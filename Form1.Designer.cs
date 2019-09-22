@@ -103,6 +103,7 @@ namespace Heather_Finnegan_Assignment2
             this.txtBox_firstName.Size = new System.Drawing.Size(196, 31);
             this.txtBox_firstName.TabIndex = 3;
             this.txtBox_firstName.TextChanged += new System.EventHandler(this.TxtBox_firstName_TextChanged);
+            this.txtBox_firstName.KeyPress += new KeyPressEventHandler(this.txtBox_firstName_KeyPress);
             // 
             // txtBox_middleInitial
             // 
@@ -112,6 +113,7 @@ namespace Heather_Finnegan_Assignment2
             this.txtBox_middleInitial.Name = "txtBox_middleInitial";
             this.txtBox_middleInitial.Size = new System.Drawing.Size(42, 31);
             this.txtBox_middleInitial.TabIndex = 4;
+            this.txtBox_middleInitial.KeyPress += new KeyPressEventHandler(this.txtBox_middleInitial_KeyPress);
             // 
             // txtBox_lastName
             // 
@@ -122,6 +124,7 @@ namespace Heather_Finnegan_Assignment2
             this.txtBox_lastName.Size = new System.Drawing.Size(196, 31);
             this.txtBox_lastName.TabIndex = 5;
             this.txtBox_lastName.TextChanged += new System.EventHandler(this.TxtBox_lastName_TextChanged);
+            this.txtBox_lastName.KeyPress += new KeyPressEventHandler(this.txtBox_lastName_KeyPress);
             // 
             // lbl_gender
             // 
@@ -300,6 +303,7 @@ namespace Heather_Finnegan_Assignment2
             this.txtBox_city.Size = new System.Drawing.Size(196, 31);
             this.txtBox_city.TabIndex = 15;
             this.txtBox_city.TextChanged += new System.EventHandler(this.TxtBox_city_TextChanged);
+            this.txtBox_city.KeyPress += new KeyPressEventHandler(this.txtBox_city_KeyPress);
             // 
             // txtBox_state
             // 
@@ -310,6 +314,7 @@ namespace Heather_Finnegan_Assignment2
             this.txtBox_state.Size = new System.Drawing.Size(58, 31);
             this.txtBox_state.TabIndex = 16;
             this.txtBox_state.TextChanged += new System.EventHandler(this.TxtBox_state_TextChanged);
+            this.txtBox_state.KeyPress += new KeyPressEventHandler(this.txtBox_state_KeyPress);
             // 
             // txtBox_zipcode
             // 
