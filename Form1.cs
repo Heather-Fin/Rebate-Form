@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Heather_Finnegan_Assignment2
 {
@@ -30,7 +32,11 @@ namespace Heather_Finnegan_Assignment2
         bool proof = false;
 
         // variables for form fill information
-        string submitTime;
+        bool beganFormFill = false;
+        Stopwatch stopWatch = new Stopwatch();
+        string elapsedTime;
+        string submitTime = "";
+        int backspaces = 0;
 
         public Form1()
         {
@@ -74,8 +80,23 @@ namespace Heather_Finnegan_Assignment2
             }
         }
 
+        private void isBackspace(EventArgs e)
+        {
+
+        }
+
         private void TxtBox_firstName_TextChanged(object sender, EventArgs e)
         {
+
+            // checks if this is the first character entered into the form
+            if (!beganFormFill)
+            {
+                beganFormFill = true;
+                stopWatch.Start();
+            }
+
+            isBackspace(e);
+
             if (txtBox_firstName.TextLength > 0)
             {
                 firstName = true;
@@ -230,6 +251,8 @@ namespace Heather_Finnegan_Assignment2
                     MessageBox.Show("Oh no, that user already exists!");
                     return;
                 }
+                // store time taken, submit time, and backspaces from original entry
+                //submitTime
                 DeleteElement();
                 AddElement();
             }
@@ -240,6 +263,14 @@ namespace Heather_Finnegan_Assignment2
             }
             else
             {
+                stopWatch.Stop();
+                // Get the elapsed time as a TimeSpan value.
+                TimeSpan ts = stopWatch.Elapsed;
+
+                // Format and display the TimeSpan value.
+                elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    ts.Hours, ts.Minutes, ts.Seconds,
+                    ts.Milliseconds / 10);
                 submitTime = DateTime.Now.ToString("h:mm:ss tt");
                 AddElement();
             }
@@ -318,8 +349,10 @@ namespace Heather_Finnegan_Assignment2
                     + txtBox_number.Text + "\t"
                     + txtBox_email.Text + "\t"
                     + dropDown_proof.Text + "\t"
-                    + txtBox_date.Text + "\t");
-                    //+ submitTime + "\t"
+                    + txtBox_date.Text + "\t"
+                    + elapsedTime + "\t"
+                    + submitTime + "\t"
+                    + backspaces + "\t");
                 tw.Close();
             }
         }
