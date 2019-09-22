@@ -41,9 +41,19 @@ namespace Heather_Finnegan_Assignment2
         public Form1()
         {
             InitializeComponent();
+
             // forces uppercase letters for state abbreviation and middle initial
             txtBox_middleInitial.CharacterCasing = CharacterCasing.Upper;
             txtBox_state.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        // form level event to count the number of backspaces pressed
+        void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                backspaces += 1;
+            }
         }
 
         // loads the text file into the list view table. Creates a file if none exists
@@ -80,11 +90,6 @@ namespace Heather_Finnegan_Assignment2
             }
         }
 
-        private void isBackspace(EventArgs e)
-        {
-
-        }
-
         private void TxtBox_firstName_TextChanged(object sender, EventArgs e)
         {
 
@@ -94,9 +99,6 @@ namespace Heather_Finnegan_Assignment2
                 beganFormFill = true;
                 stopWatch.Start();
             }
-
-            isBackspace(e);
-
             if (txtBox_firstName.TextLength > 0)
             {
                 firstName = true;
@@ -243,6 +245,7 @@ namespace Heather_Finnegan_Assignment2
 
             if (listView1.SelectedItems.Count > 0)
             {
+                // checks if the existing element is the currently selected element for editing
                 ListViewItem li = listView1.SelectedItems[0];
                 if (ElementExists() && !(li.SubItems[0].Text == txtBox_firstName.Text &&
                     li.SubItems[1].Text == txtBox_lastName.Text &&
@@ -251,8 +254,6 @@ namespace Heather_Finnegan_Assignment2
                     MessageBox.Show("Oh no, that user already exists!");
                     return;
                 }
-                // store time taken, submit time, and backspaces from original entry
-                //submitTime
                 DeleteElement();
                 AddElement();
             }
@@ -307,6 +308,9 @@ namespace Heather_Finnegan_Assignment2
                     (element[2] == txtBox_lastName.Text) &&
                     (element[9] == txtBox_number.Text))
                 {
+                    elapsedTime = element[13];
+                    submitTime = element[14];
+                    backspaces = Int32.Parse(element[15]);
                     return true;
                 }
             }
@@ -316,6 +320,7 @@ namespace Heather_Finnegan_Assignment2
         // clears all user entered data from screen
         private void ClearFields()
         {
+            backspaces = 0;
             listView1.SelectedItems.Clear();
             txtBox_firstName.Clear();
             txtBox_middleInitial.Clear();
