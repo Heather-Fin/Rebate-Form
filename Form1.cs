@@ -29,6 +29,9 @@ namespace Heather_Finnegan_Assignment2
         bool date = false;
         bool proof = false;
 
+        // variables for form fill information
+        string submitTime;
+
         public Form1()
         {
             InitializeComponent();
@@ -217,20 +220,30 @@ namespace Heather_Finnegan_Assignment2
         private void Btn_add_Click(object sender, EventArgs e)
         {
 
-            if (ElementExists())
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem li = listView1.SelectedItems[0];
+                if (ElementExists() && !(li.SubItems[0].Text == txtBox_firstName.Text &&
+                    li.SubItems[1].Text == txtBox_lastName.Text &&
+                    li.SubItems[2].Text == txtBox_number.Text))
+                {
+                    MessageBox.Show("Oh no, that user already exists!");
+                    return;
+                }
+                DeleteElement();
+                AddElement();
+            }
+            else if (ElementExists())
             {
                 MessageBox.Show("Oh no, that user already exists!");
                 return;
-            } else if (listView1.SelectedItems.Count > 0)
+            }
+            else
             {
-                DeleteElement();
-                AddElement();
-            } else
-            {
+                submitTime = DateTime.Now.ToString("h:mm:ss tt");
                 AddElement();
             }
             
-            listView1.SelectedItems.Clear();
             this.LoadFile();
             ClearFields();
             txtBox_firstName.Focus();
@@ -272,6 +285,7 @@ namespace Heather_Finnegan_Assignment2
         // clears all user entered data from screen
         private void ClearFields()
         {
+            listView1.SelectedItems.Clear();
             txtBox_firstName.Clear();
             txtBox_middleInitial.Clear();
             txtBox_lastName.Clear();
@@ -305,6 +319,7 @@ namespace Heather_Finnegan_Assignment2
                     + txtBox_email.Text + "\t"
                     + dropDown_proof.Text + "\t"
                     + txtBox_date.Text + "\t");
+                    //+ submitTime + "\t"
                 tw.Close();
             }
         }
@@ -370,6 +385,7 @@ namespace Heather_Finnegan_Assignment2
         {
             if (listView1.SelectedItems.Count == 1)
             {
+                btn_add.Text = "Save";
                 btn_delete.Enabled = true;
                 string[] filelines = File.ReadAllLines(fileName);
                 ListViewItem li = listView1.SelectedItems[0];
@@ -400,6 +416,8 @@ namespace Heather_Finnegan_Assignment2
                 }
             } else
             {
+                ClearFields();
+                btn_add.Text = "Add";
                 btn_delete.Enabled = false;
             }
         }
